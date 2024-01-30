@@ -1,7 +1,9 @@
+import CreateBlogs from "../CreateBlogs/CreateBlogs";
+
 const Home = () => {
   return (
     <div>
-      <h1>This is home</h1>
+      <CreateBlogs />
     </div>
   );
 };

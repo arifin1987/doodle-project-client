@@ -5,6 +5,8 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./Layout/Main";
 import Home from "./pages/Home/Home/Home";
+import AllBlogs from "./pages/AllBlogs/AllBlogs";
+import BlogDetails from "./pages/BlogDetails/BlogDetails";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/blogs",
+        element: <AllBlogs />,
+      },
+      {
+        path: "/blogs/:blogId",
+        element: <BlogDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/api/blogs/${params.blogId}`),
       },
     ],
   },
